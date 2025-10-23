@@ -1,15 +1,14 @@
-let fighters = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐻‍❄️", "🐨", "🐯", 
-"🦁", "🐮", "🐷", "🐸", "🐵", "🐔"]
+let fruit = ["🍎", "🍊", "🍎", "🍎", "🍊"]
 
-let stageEl = document.getElementById("stage")
-let fightButton = document.getElementById("fightButton")
+let appleShelf = document.getElementById("apple-shelf")
+let orangeShelf = document.getElementById("orange-shelf")
 
-fightButton.addEventListener("click", function() {
-    let fighter1 = getRandomFighter()
-    let fighter2 = getRandomFighter()
-    stageEl.textContent = (`${fighter1} vs ${fighter2}`)
-})
-
-function getRandomFighter(){
-    return fighters[Math.floor(Math.random() * fighters.length)]
+for (let i = 0; i<fruit.length; i++){
+    if (fruit[i] === "🍎") {
+        appleShelf.textContent += "🍎"
+    } else if (fruit[i] === "🍊"){
+        orangeShelf.textContent += "🍊"
+    } else {
+        console.log("Uncategorized item detected!")
+    }
 }
