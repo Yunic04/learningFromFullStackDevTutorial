@@ -782,3 +782,41 @@ button {
     padding: 10px;
     margin: 0px 5px;
 } */
+
+/* BLACKJACK GAME */
+
+/* body {
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+    background-image: url("images/table.png");
+    background-size: cover;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: goldenrod;
+
+}
+
+#message-el {
+    font-style: italic;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    background: goldenrod;
+    border-radius: 2px;
+    color: #016f32;
+    border: none;
+    font-weight: bold;
+    padding: 4px 0;
+    width: 150px;
+    margin-bottom: 5px;
+} */
