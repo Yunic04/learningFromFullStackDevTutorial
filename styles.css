@@ -1,22 +1,76 @@
-body {
+body{
+    background: #1d222e;
+    margin: 20px;
+}
+
+#upper-h1 {
+    color: white;
+}
+
+#bottom-h1 {
+    color: #50bf85;
+    margin-bottom: 80px;
+}
+
+p {
+    color: #9aa0aa;
+}
+
+#actions {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+    justify-content: start;
+}
+
+#generate-btn {
+    background: #13b075;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+#password-length {
+    width: 185px;
+    border-radius: 5px;
+    border: none;
+    margin: 0 20px;
+}
+
+.checkbox {
+    display: flex;
+    margin-left: 0px;
+}
+
+#horizontal-line{
+    border-bottom: 1px solid lightgray;
+    height: 1px;
+    margin: 20px 0;
+}
+
+#passwords{
+    display: flex;
+    justify-content: start;
     text-align: center;
 }
 
-#apple-shelf {
-    background: lightcoral;
+.password-container {
+    background: #232f40;
+    color: #50bf85;
+    border: none;
     border-radius: 5px;
-    width: 200px;
-    height: 30px;
-    margin-bottom: 10px;
+    padding: 5px 10px;
+    width: 150px;
+    height: 30px
 }
 
-#orange-shelf {
-    background: lightsalmon;
-    border-radius: 5px;
-    width: 200px;
-    height: 30px;
+#numbers {
+    margin-left: 20px;
+}
+
+#password2 {
+    margin-left: 20px;
+}
+
+#hint {
+    font-size: 10px;
 }

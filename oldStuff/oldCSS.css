@@ -859,3 +859,28 @@ button {
     font-family: "Permanent Marker", cursive;
     padding: 3px 10px;
 } */
+
+/* FRUIT SORTER */
+
+/* body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#apple-shelf {
+    background: lightcoral;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#orange-shelf {
+    background: lightsalmon;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+} */
