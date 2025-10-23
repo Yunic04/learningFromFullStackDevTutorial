@@ -1,29 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html>
     <head>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div id="score-card">
-            <div class="section">
-                <h1>HOME</h1>
-                <div class="score" id="home-score">0</div>
-                <div class="buttons">
-                    <button onclick="incrementScore(1, 'home')">+1</button>
-                    <button onclick="incrementScore(2, 'home')">+2</button>
-                    <button onclick="incrementScore(3, 'home')">+3</button>
-                </div>
-            </div>
-            <div class="section">
-                <h1>GUEST</h1>
-                <div class="score" id="guest-score">0</div>
-                <div class="buttons">
-                    <button onclick="incrementScore(1, 'guest')">+1</button>
-                    <button onclick="incrementScore(2, 'guest')">+2</button>
-                    <button onclick="incrementScore(3, 'guestr')">+3</button>
-                </div>
-            </div>
+        <h1>Blackjack</h1>
+        <p id="message-el">Want to play a round?</p>
+        <p id="cards-el">Cards: </p>
+        <p id="sum-el">Sum: </p>
+        <div id="buttons">
+            <button onclick="startGame()">START GAME</button>
+            <button onclick="newCard()">NEW CARD</button>
         </div>
+        <p id="player-el"></p>
         <script src="index.js"></script>
     </body>
 </html>
