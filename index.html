@@ -1,33 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html>
     <head>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1 id="upper-h1">Generate a</h1>
-        <h1 id="bottom-h1">random password</h1>
-        <div id="actions">
-            <button id="generate-btn">Generate passwords</button>
-            <input 
-            id="password-length" 
-            type="number" 
-            placeholder="password length(default: 15)" min="1"
-            >
-            <div class="checkbox">
-                <input id="symbols" type="checkbox"checked>
-                <p>symbols</p>
-            </div>
-            <div class="checkbox">
-                <input id="numbers" type="checkbox" checked>
-                <p>numbers</p>
-            </div>
-        </div>
-        <div id="horizontal-line"></div>
-        <div id="passwords">
-            <button class="password-container" id="password1"></button>
-            <button class="password-container" id="password2"></button>
-        </div>
-        <p id="hint">(Click on generated password to copy)</p>
+        <input type="text" id="input-el">
+        <button id="input-btn">SAVE INPUT</button>
+        <button id="tab-btn">SAVE TAB</button>
+        <button id="delete-btn">DELETE ALL</button>
+        <ul id="ul-el"></ul>
         <script src="index.js"></script>
     </body>
 </html>

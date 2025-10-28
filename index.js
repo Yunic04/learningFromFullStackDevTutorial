@@ -1,103 +1,43 @@
-let generateButtonEl = document.getElementById("generate-btn")
-let password1El = document.getElementById("password1")
-let password2El = document.getElementById("password2")
-let passwordLengthEl = document.getElementById("password-length")
-let passwordLength = 15
-let symbolsEl = document.getElementById("symbols")
-let numbersEl = document.getElementById("numbers")
-const characters = [
-  // Uppercase letters
-  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+const inputEl = document.getElementById("input-el")
+const inputBtn = document.getElementById("input-btn")
+const deleteBtn = document.getElementById("delete-btn")
+const ulEl = document.getElementById("ul-el")
+const tabBtn = document.getElementById("tab-btn")
 
-  // Lowercase letters
-  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+let myLeads = leadsFromLocalStorage ? leadsFromLocalStorage : []
 
-  // Numbers
-  "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+renderLeads(myLeads)
 
-  // Special characters
-  "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
-  "-", "=", "[", "]", "{", "}", "|", ";", ":", "'", ",", ".", "<", ">", "/", "?", "`", "~", "\"", "\\"
-];
-const charactersNoNum = [
-  // Uppercase letters
-  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+inputBtn.addEventListener("click", function(){
+    myLeads.push(inputEl.value)
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
+    renderLead(inputEl.value)
+    inputEl.value = ""
+})
 
-  // Lowercase letters
-  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+tabBtn.addEventListener("click", function(){
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
+        renderLead(tabs[0].url)
+    })
+})
 
-  // Special characters
-  "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
-  "-", "=", "[", "]", "{", "}", "|", ";", ":", "'", ",", ".", "<", ">", "/", "?", "`", "~", "\"", "\\"
-];
-const charactersNoSymbols = [
-  // Uppercase letters
-  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+deleteBtn.addEventListener("dblclick", function(){
+    localStorage.clear()
+    myLeads = []
+    ulEl.innerHTML = ''
+})
 
-  // Lowercase letters
-  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+function renderLead(lead){
+    ulEl.innerHTML += `<li> <a href="${lead}" target="_blank"> ${lead}</a> </li>`
+}
 
-  // Numbers
-  "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-];
-const charactersOnlyAlphabet = [
-  // Uppercase letters
-  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-
-  // Lowercase letters
-  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-];
-
-
-generateButtonEl.addEventListener("click", function(){
-    if (passwordLengthEl.value === ""){
-        passwordLength = 15
-    } else {
-        passwordLength = passwordLengthEl.value
+function renderLeads(leads) {
+    let listItems = ""
+    for (let i = 0; i<leads.length; i++){
+        listItems += `<li> <a href="${leads[i]}" target="_blank"> ${leads[i]}</a> </li>`
     }
-    password1El.textContent = getRandomPassword(passwordLength, symbolsEl.checked, numbersEl.checked)
-    password2El.textContent = getRandomPassword(passwordLength, symbolsEl.checked, numbersEl.checked)
-})
-
-password1El.addEventListener("click", function(){
-    navigator.clipboard.writeText(password1El.textContent)
-    alert("Password copied!")
-})
-
-password2El.addEventListener("click", function(){
-    navigator.clipboard.writeText(password2El.textContent)
-    alert("Password copied!")
-})
-
-function getRandomPassword(passwordLength, symbols, numbers){
-    let password = ""
-    if (symbols === true && numbers === true) {
-        for (let i = 0; i < passwordLength; i++) {
-            password += characters[Math.floor(Math.random() * characters.length)]
-        }
-        return password
-    } else if (!symbols && numbers) {
-        for (let i = 0; i < passwordLength; i++) {
-            password += charactersNoSymbols[Math.floor(Math.random() * charactersNoSymbols.length)]
-        }
-        return password
-    } else if (symbols && !numbers) {
-        for (let i = 0; i < passwordLength; i++) {
-            password += charactersNoNum[Math.floor(Math.random() * charactersNoNum.length)]
-        }
-        return password
-    } else if (!symbols && !numbers) {
-        for (let i = 0; i < passwordLength; i++) {
-            password += charactersOnlyAlphabet[Math.floor(Math.random() * charactersOnlyAlphabet.length)]
-        }
-        return password
-    }
+    ulEl.innerHTML = listItems
 }
