@@ -490,3 +490,110 @@
 //     massEl.textContent = `${value} kilos = ${(value*2.205).toFixed(3)} pounds |
 //      ${value} pounds = ${(value/2.205).toFixed(3)} kilos`
 // })
+
+// timeout
+
+// document.getElementById("stop").addEventListener("click",function(){
+//     clearTimeout(questionTimer)
+//     console.log("au")
+// })
+
+// function logAnswer(){
+//     console.log(`The answer is 2`)
+// }
+
+// console.log(`what is 1 + 1?`)
+
+// const questionTimer = setTimeout(logAnswer, 3000)
+
+// timeout
+
+// const start = performance.now()
+
+// setTimeout(() => {
+//     const end = performance.now()
+//     console.log(`Execution time: ${end-start} milliseconds`)
+// }, 1000)
+
+// for (let i=0; i < 1000000; i++){
+//     let answer = i * 2000000 / 67.8 * (45.7 / 3.2)
+// }
+
+//time without slow executing code: 1006.3404999999999 milliseconds
+//time with slow executing code: 1011.5996 milliseconds
+
+// date
+
+// const dateSnapshot = new Date()
+
+// console.log(dateSnapshot.getFullYear().toString())
+
+//error
+
+// function checkUsername(userName) {
+//     if (userName) {
+//         console.log(userName)
+//     } else {
+//         throw new Error('No username provided')
+//     }
+// }
+
+// checkUsername()
+
+//pre increment
+
+// let i = 0
+
+// function fun(){
+//     return ++i
+// }
+
+// console.log(fun())
+// console.log(fun())
+// console.log(fun())
+
+// separator
+
+// let num = 9_438_029_842
+// console.log(num)
+
+// STOCK TICKER
+
+// import {getStockData} from '/fakeStockAPI.js'
+
+// const stockName = document.getElementById('stock-name')
+// const stockSymbol = document.getElementById('stock-symbol')
+// const stockPrice = document.getElementById('stock-price')
+// const timeEl = document.getElementById('time')
+
+// let stockData = getStockData()
+
+// let previousPrice = Number(JSON.parse(localStorage.getItem("price")))
+// previousPrice = previousPrice ? previousPrice : 0.00;
+
+// let newPrice = Number(stockData.price)
+
+// let emoji = newPrice > previousPrice ? '🔺' 
+// : newPrice < previousPrice ? '🔻' 
+// : '▶'
+
+// localStorage.setItem("price", JSON.stringify(newPrice))
+
+// stockName.textContent = `Name: ${stockData.name}`
+// stockSymbol.textContent = `Symbol: ${stockData.sym}`
+// stockPrice.textContent = `Price: ${newPrice} ${emoji}`
+// timeEl.textContent = `Time: ${stockData.time}`
+
+// setInterval(() =>{
+//     newPrice = Number(getStockData().price)
+//     previousPrice = Number(JSON.parse(localStorage.getItem("price")))
+//     emoji = newPrice > previousPrice ? '🔺' 
+//     : newPrice < previousPrice ? '🔻' 
+//     : '▶'
+//     localStorage.setItem("price", JSON.stringify(newPrice))
+//     stockPrice.textContent = `Price: ${newPrice} ${emoji}`
+// }, 1500)
+
+// setInterval(() => {
+//     timeEl.textContent = `Time: ${getStockData().time}`
+// }, 1000)

@@ -1,20 +1,38 @@
-const inputEl = document.getElementById("input-el")
-const convertBtn = document.getElementById("convert-btn")
-const lengthEl = document.getElementById("length-el")
-const volumeEl = document.getElementById("volume-el")
-const massEl = document.getElementById("mass-el")
+import {getStockData} from '/fakeStockAPI.js'
 
-let value = 0
+const stockName = document.getElementById('stock-name')
+const stockSymbol = document.getElementById('stock-symbol')
+const stockPrice = document.getElementById('stock-price')
+const timeEl = document.getElementById('time')
 
-convertBtn.addEventListener("click", function(){
-    value = Number(inputEl.value)
-    
-    lengthEl.textContent = `${value} meters = ${(value*3.281).toFixed(3)} feet |
-     ${value} feet = ${(value/3.281).toFixed(3)} meters`
+let stockData = getStockData()
 
-    volumeEl.textContent = `${value} liters = ${(value/3.875).toFixed(3)} gallons |
-     ${value} gallons = ${(value*3.875).toFixed(3)} liters`
+let previousPrice = Number(JSON.parse(localStorage.getItem("price")))
+previousPrice = previousPrice ? previousPrice : 0.00;
 
-    massEl.textContent = `${value} kilos = ${(value*2.205).toFixed(3)} pounds |
-     ${value} pounds = ${(value/2.205).toFixed(3)} kilos`
-})
+let newPrice = Number(stockData.price)
+
+let emoji = newPrice > previousPrice ? '🔺' 
+: newPrice < previousPrice ? '🔻' 
+: '▶'
+
+localStorage.setItem("price", JSON.stringify(newPrice))
+
+stockName.textContent = `Name: ${stockData.name}`
+stockSymbol.textContent = `Symbol: ${stockData.sym}`
+stockPrice.textContent = `Price: ${newPrice} ${emoji}`
+timeEl.textContent = `Time: ${stockData.time}`
+
+setInterval(() =>{
+    newPrice = Number(getStockData().price)
+    previousPrice = Number(JSON.parse(localStorage.getItem("price")))
+    emoji = newPrice > previousPrice ? '🔺' 
+    : newPrice < previousPrice ? '🔻' 
+    : '▶'
+    localStorage.setItem("price", JSON.stringify(newPrice))
+    stockPrice.textContent = `Price: ${newPrice} ${emoji}`
+}, 1500)
+
+setInterval(() => {
+    timeEl.textContent = `Time: ${getStockData().time}`
+}, 1000)

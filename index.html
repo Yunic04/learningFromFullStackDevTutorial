@@ -1,29 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div id="top">
-      <h2>Metric/Imeperial Unit Conversion</h2>
-      <input type="number" id="input-el" />
-      <button id="convert-btn">Convert</button>
-    </div>
-    <div id="bottom">
-      <div class="units">
-        <h3>Length (Meter/Feet)</h3>
-        <p id="length-el">1 meters = 3.281 feet | 1 feet = 0.305 meters</p>
-      </div>
-      <div class="units">
-        <h3>Volume (Liters/Gallons)</h3>
-        <p id="volume-el">1 liters = 0.258 gallons | 1 gallons = 3.875 liters</p>
-      </div>
-      <div class="units">
-        <h3>Mass (Kilograms/Pounds)</h3>
-        <p id="mass-el">1 kilos = 2.205 pounds | 1 pounds = 0.454 kilos</p>
-      </div>
-      <a href="#">Disclaimer</a>
-    </div>
-    <script src="index.js"></script>
-  </body>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="info">
+                <p id="stock-name"></p>
+                <p id="stock-symbol"></p>
+                <p id="stock-price"></p>
+                <p id="time"></p>
+            </div>
+        </div>
+        <script type="module" src="index.js"></script>
+    </body>
 </html>

@@ -1140,3 +1140,38 @@ h3 {
 p{
     color: #a09ea8;
 } */
+
+/* STOCK TICKER */
+
+/* body {
+    text-align: center;
+}
+
+#container {
+    border: 5px solid lightgreen;
+    background: black;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    margin: 50px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#info {
+    border-radius: 10px;
+    border: none;
+    color: black;
+    width: 400px;
+    height: 300px;
+    background: white;
+    margin: 50px auto;
+    text-align: start;
+    padding: 5px 30px;
+    box-sizing: border-box;
+}
+
+p {
+    font-weight: bold;
+    font-size: 30px;
+} */
