@@ -568,30 +568,28 @@
 
 // let stockData = getStockData()
 
-// let previousPrice = Number(JSON.parse(localStorage.getItem("price")))
-// previousPrice = previousPrice ? previousPrice : 0.00;
+// let { name, sym, price, time } = stockData
 
-// let newPrice = Number(stockData.price)
+// let prevPrice = null
 
-// let emoji = newPrice > previousPrice ? '🔺' 
-// : newPrice < previousPrice ? '🔻' 
+// price = Number(price)
+
+// let emoji = price > prevPrice ? '🔺' 
+// : price < prevPrice ? '🔻' 
 // : '▶'
 
-// localStorage.setItem("price", JSON.stringify(newPrice))
-
-// stockName.textContent = `Name: ${stockData.name}`
-// stockSymbol.textContent = `Symbol: ${stockData.sym}`
-// stockPrice.textContent = `Price: ${newPrice} ${emoji}`
-// timeEl.textContent = `Time: ${stockData.time}`
+// stockName.textContent = `Name: ${name}`
+// stockSymbol.textContent = `Symbol: ${sym}`
+// stockPrice.textContent = `Price: ${price} ${emoji}`
+// timeEl.textContent = `Time: ${time}`
 
 // setInterval(() =>{
-//     newPrice = Number(getStockData().price)
-//     previousPrice = Number(JSON.parse(localStorage.getItem("price")))
-//     emoji = newPrice > previousPrice ? '🔺' 
-//     : newPrice < previousPrice ? '🔻' 
+//     price = Number(getStockData().price)
+//     emoji = price > prevPrice ? '🔺' 
+//     : price < prevPrice ? '🔻' 
 //     : '▶'
-//     localStorage.setItem("price", JSON.stringify(newPrice))
-//     stockPrice.textContent = `Price: ${newPrice} ${emoji}`
+//     stockPrice.textContent = `Price: ${price} ${emoji}`
+//     prevPrice = price
 // }, 1500)
 
 // setInterval(() => {
