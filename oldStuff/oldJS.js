@@ -595,3 +595,50 @@
 // setInterval(() => {
 //     timeEl.textContent = `Time: ${getStockData().time}`
 // }, 1000)
+
+// ARROW FUNCTION
+
+// const speedWarning = (spdLimit, spd) => {
+//     let message = spd > spdLimit ? `You are going at ${spd} mph!` : `All good!`
+//     return message
+// }
+
+// console.log(speedWarning(30, 20))
+
+// CHALLENGE
+
+// function getLabelsHtml(text, sender, ...recipient){
+//     let component = ``
+//     recipient.forEach((receiver) => {
+//         component += `<div class="label-card">
+//         <p>Dear ${receiver.name}</p>
+//         <p>${text}</p>
+//         <p>Best wishes,</p>
+//         <p>${sender}</p>
+//         </div>`
+//     })
+//     return component
+// }
+
+// const text = 'Thank you for all your hard work throughout the year'
+// const sender = 'Tom'
+
+// document.getElementById('labels-container').innerHTML = getLabelsHtml(
+//     text,
+//     sender,
+//     {name: 'Sally'},
+//     {name: 'Mike'},
+//     {name: 'Rob'},
+//     {name: 'Harriet'}
+// )
+
+// method
+
+// const arr = [2,2,2,4,4]
+
+// const count = arr.reduce((acc, num) => {
+//     acc[num] = (acc[num] || 0) + 1
+//     return acc
+// }, {})
+
+// console.log(count)
