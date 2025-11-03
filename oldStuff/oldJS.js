@@ -642,3 +642,162 @@
 // }, {})
 
 // console.log(count)
+
+// PROPERTY SALE
+
+// import propertyForSaleArr from "./properties/propertyForSaleArr.js"
+// import placeholderPropertyObj from "./properties/placeholderPropertyObj.js"
+
+// function getPropertyHtml(properties = [placeholderPropertyObj]){
+//     return properties.map(property => {
+//         const { propertyLocation, priceGBP, roomsM2, comment, image } = property
+//         const totalSize = roomsM2.reduce((total, size) => total + size, 0)
+//         return `
+//         <section class="card">
+//             <img src="images/${image}">
+//             <div class="card-right">
+//                 <h2>${propertyLocation}</h2>
+//                 <h3>£${priceGBP}</h3>
+//                 <p>${comment}</p>
+//                 <h3>${totalSize} m²</h3>
+//             </div>
+//         </section>
+//         `
+//     }).join('')
+// }
+
+// // document.getElementById('container').innerHTML = getPropertyHtml()
+// document.getElementById('container').innerHTML = getPropertyHtml(propertyForSaleArr)
+
+// async await fetch
+
+// try{
+//     const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+//         method: 'PUT',
+//         body: JSON.stringify({
+//             title: 'Holiday',
+//             body: 'When I was kidnapped in Scottland...',
+//             userId: 101
+//         }),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     if(!response.ok){ throw new Error('There was a problem with the API')}
+//     const data = await response.json()
+//     console.log(data)
+// } catch(err){
+//     console.log(err)
+// }
+
+// CHALLENGE
+
+// function preLoadImg(url){
+//     return new Promise((resolve, reject) => {
+//         const img = new Image
+//         img.src = url
+//         img.alt = 'a beautiful scene'
+//         img.addEventListener('load', () => resolve(img))
+//         img.addEventListener('error', () => reject('img has NOT loaded'))
+//     })
+// }
+
+// try {
+//     const results = await preLoadImg(`https://scrimba.ams3.cdn.digitaloceanspaces.com/assets/courses/gadvandcedjs/scenic1.jpg`)
+//     console.log(results)
+//     document.getElementById('img-container').appendChild(results)
+// } catch (err) {
+//     console.log(err)
+// }
+
+// promises
+
+// function uploadFile() {
+//     return new Promise((resolve, reject) => {
+//         console.log('Step 1: Uploading file...')
+//         setTimeout(()=>{
+//             resolve()
+//         }, 1000)
+//     })
+// }
+
+// function processFile() {
+//     return new Promise((resolve,reject) => {
+//         console.log('Step 2: Processing file...')
+//         setTimeout(() => {
+//             resolve()
+//         }, 1000)
+//     })
+// }
+
+// function notifyUser(){
+//     return new Promise((resolve, reject) => {
+//         console.log('Step 3: Notifying user...')
+//         setTimeout(()=> {
+//             resolve()
+//         },1000)
+//     })
+// }
+
+// try {
+//     await uploadFile()
+//     await processFile()
+//     await notifyUser()
+//     console.log('All steps completed!')
+// } catch(err) {
+//     console.log(err)
+// }
+
+
+// function createPromise(){
+//     return new Promise((resolve, reject) => {
+//         const success = Math.random() > 0.5
+//         success ? resolve('yay') : reject('nay')
+//     })
+// }
+
+// try {
+//     const promise1 = createPromise()
+//     const promise2 = createPromise()
+//     const promise3 = createPromise()
+//     const result = await Promise.all([promise1, promise2, promise3])
+//     console.log(result)
+// } catch (err) {
+//     console.log(err)
+// }
+
+
+// function getImagePromise(url) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(()=>{
+//             const img = new Image()
+//             img.src = url
+//             img.addEventListener('load', ()=> resolve(img))
+//             img.addEventListener('error', () => reject(new Error(`Failed to load image: ${url}`)))
+//         }, 500)
+//     })
+// }
+
+// const images = [
+//     'https://skyhookcontentful.imgix.net/6MPvB1nbHtL2AQbxMi2D7y/af0829fe9fc4733a754e15705d99d33d/pixabay-pehrlich-himalayas.jpg?auto=compress%2Cformat%2Cenhance%2Credeye&crop=faces%2Ccenter&fit=crop&ar=1%3A1&w=576px&ixlib=react-9.10.0',
+//     'https://plus.unsplash.com/premium_photo-1688645554172-d3aef5f837ce?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmVwYWwlMjBtb3VudGFpbnxlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
+//     'https://www.google.com/imgres?q=mountain&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fe%2Fe7%2FEverest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMountain&docid=oiQv_zLtLLGShM&tbnid=ZH4n6DnAkszpmM&vet=12ahUKEwij-NiOptWQAxUdZSoJHWyUIFUQM3oECBIQAA..i&w=2000&h=1333&hcb=2&ved=2ahUKEwij-NiOptWQAxUdZSoJHWyUIFUQM3oECBIQAA'
+// ]
+
+// async function preLoadImages(imageUrlsArr){
+//     const imgContainer = document.getElementById('img-container')
+//     const uploadContainer = document.getElementById('upload-container')
+
+//     const promiseArr = imageUrlsArr.map(url => getImagePromise(url))
+
+//     try {
+//         const results = await Promise.all(promiseArr)
+//         console.log('All images loaded successfully!')
+//         uploadContainer.style.display = 'none'
+//         results.forEach((result) => imgContainer.appendChild(result))
+//     } catch(err) {
+//         console.log(err)
+//     }
+// }
+
+// document.getElementById('submit-imgs').addEventListener('click', ()=> preLoadImages(images))
