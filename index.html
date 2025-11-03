@@ -4,9 +4,20 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <main>
-            <section id="img-container"></section>
-        </main>
-        <script type="module" src="index.js"></script>
+         <div id="top">
+            <h1>FAKE & UNRELIABLE</h1>
+            <h3>Stock Predictions</h3>
+         </div>
+         <div id="main">
+            <p id="message-el">Add up to 3 stock tickers below to get a super inaccurate stock predictions report</p>
+            <form>
+                <input type="text" id="ticker-input" placeholder="MSFT" required>
+                <button id="add-btn">+</button>
+            </form>
+            <p id="tickers">Your tickers will appear here...</p>
+            <button id="generate-btn">GENERATE REPORT</button>
+            <p id="xtra-info">Almost always wrong every time!</p>
+            <p>© This is not financial advice!</p>
+         </div>
     </body>
 </html>
