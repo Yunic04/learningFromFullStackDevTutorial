@@ -9,15 +9,20 @@
             <h3>Stock Predictions</h3>
          </div>
          <div id="main">
-            <p id="message-el">Add up to 3 stock tickers below to get a super inaccurate stock predictions report</p>
+            <div id="message-el">Add up to 3 stock tickers below to<br>get a super inaccurate stock<br>predictions report</div>
             <form>
-                <input type="text" id="ticker-input" placeholder="MSFT" required>
-                <button id="add-btn">+</button>
+                <input type="text" id="ticker-input" placeholder="MSFT">
+                <button id="add-btn" type="button">+</button>
             </form>
-            <p id="tickers">Your tickers will appear here...</p>
-            <button id="generate-btn">GENERATE REPORT</button>
+            <div id="tickers">Your tickers will appear here...</div>
+            <button id="generate-btn" disabled>GENERATE REPORT</button>
             <p id="xtra-info">Almost always wrong every time!</p>
-            <p>© This is not financial advice!</p>
          </div>
+         <div id="loading-area">
+            <div class="loader"></div>
+            <p id="api-message">Querying Stocks API...</p>
+         </div>
+         <p>© This is not financial advice!</p>
+         <script type="module" src="index.js"></script>
     </body>
 </html>

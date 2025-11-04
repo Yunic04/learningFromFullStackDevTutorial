@@ -1,3 +1,97 @@
 body {
     text-align: center;
+    margin: 0;
+    padding-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#top {
+    color: white;
+    background: black;
+    margin: 0 0 40px 0;
+    padding: 10px;
+}
+
+#main {
+    display: block;
+}
+
+#message-el {
+    height: 100px;
+    
+}
+
+form {
+    display: inline-flex;
+}
+
+#ticker-input {
+    margin-right: 0;
+    border: 2px solid black;
+    height: 40px;
+    box-sizing: border-box;
+    padding-left: 15px;
+    border-right: none;
+}
+
+#ticker-input:focus {
+    outline: none;
+}
+
+#add-btn {
+    margin-left: 0;
+    background: white;
+    font-weight: bold;
+    border: 2px solid black;
+    height: 40px;
+    padding: 5px 15px;
+    
+}
+
+#tickers {
+    height: 100px;
+    width: 800px;
+    margin: 20px auto;
+}
+
+#generate-btn {
+    padding: 10px 30px;
+    border: 2px solid black;
+    background: lightgreen;
+}
+
+#xtra-info {
+    font-weight: bold;
+    margin-bottom: 70px;
+}
+
+#loading-area {
+    display: none;
+    margin-bottom: 90px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid lightgreen;
+  width: 150px;
+  height: 150px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 60px auto 100px auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#status {
+    font-weight: bold;
 }
