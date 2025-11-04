@@ -25,27 +25,32 @@ document.getElementById('add-btn').addEventListener('click', () => {
 })
 
 generateBtn.addEventListener('click', () => {
-    console.log('hi')
+    fetchStockData()
 })
 
 async function fetchStockData() {
     document.getElementById('main').style.display = "none"
     loadingArea.style.display = "block"
     try {
-        const stockData = await Promise.all(tickerArr.map(async (ticker) => {
-            const url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/${dates.
-            startDate}/${dates.endDate}?apiKey=${process.env.POLYGON_API_KEY}`
-            const response = await fetch(url)
-            const data = await response.json()
-            const status = await response.status
-            if (status === 200) {
-                apiMessage.textContent = 'Creating report...'
-                return data
-            } else {
-                loadingArea.innerHTML = 'There was an error fetching stock data'
-            }
-        }))
-        fetchReport(stockData.join(''))
+        // const stockData = await Promise.all(tickerArr.map(async (ticker) => {
+        //     const url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/${dates.
+        //     startDate}/${dates.endDate}?apiKey=${process.env.POLYGON_API_KEY}`
+        //     const response = await fetch(url)
+        //     const data = await response.json()
+        //     const status = await response.status
+        //     if (status === 200) {
+        //         apiMessage.textContent = 'Creating report...'
+        //         return data
+        //     } else {
+        //         loadingArea.innerHTML = 'There was an error fetching stock data'
+        //     }
+        // }))
+        // fetchReport(stockData.join(''))
+        setTimeout(()=>{
+            document.getElementById('main').style.display = "block"
+            loadingArea.style.display = "none"
+            tickers.textContent = 'no api key so have this random message instead :)'
+        }, 2000)
     } catch (err) {
         loadingArea.innerHTML = 'There was an error fetching stock data'
         console.log(`error: ${err}`)
